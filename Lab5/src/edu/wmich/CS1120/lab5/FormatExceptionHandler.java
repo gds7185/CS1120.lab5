@@ -2,12 +2,12 @@ package edu.wmich.CS1120.lab5;
 
 import java.io.FileNotFoundException;
 
-public abstract class FormatExceptionHandler implements IFormatExceptionHandler{
+public class FormatExceptionHandler implements IFormatExceptionHandler{
 
 	@Override
 	public void handleFileNotFoundException(FileNotFoundException e) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Error: File " + e + " not found.");
 	}
 
 	@Override
