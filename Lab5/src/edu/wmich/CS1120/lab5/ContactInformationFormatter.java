@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class ContactInformationFormatter implements IContactInformationFormatter {
 
+	FormatExceptionHandler Err = new FormatExceptionHandler();
+	
 	@Override
 	public void readContactInformation(String[] filePaths) {
 		
@@ -15,7 +17,6 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 			formatContactInformation(filePaths[i]);
 		}
 	}
-	FormatExceptionHandler Err = new FormatExceptionHandler();
 
 	@Override
 	public void formatContactInformation(String fileName) {
@@ -54,7 +55,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 				formatEmail(line3);
 			}
 			catch(EmailAddressFormatException e) {
-				//System.out.println("Error: ");
+
 				Err.handleEmailFormatException(e);
 			}
 			
@@ -73,26 +74,37 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	public void formatEmail(String email) throws EmailAddressFormatException {
 		// TODO create a loop to look for the @ symbol in the given email address. if one is not found it will 
 		//throw an error
-		boolean correct = false;
-		for (int r = 0; r < email.length();r++) {
-			if (email.charAt(r) == '@') {
-				correct = true;
-			}
-			else {}
-		}
-		if (correct == true) {
-			System.out.println(email.toLowerCase());
-		}
-		else {
+//		boolean correct = false;
+//		
+//		for (int r = 0; r < email.length();r++) {
+//			
+//			if (email.charAt(r) == '@') {
+//				correct = true;
+//			}
+//		}
+//		if (correct) {
+//			
+//			System.out.println(email.toLowerCase());
+//		}
+//		
+//		else {
+//			
+//			throw new EmailAddressFormatException("Incorrect Email Address Format");
+//		}
+		
+		for(int i = 0; i < email.length(); i++) {
 			
-			EmailAddressFormatException e = null;
-			Err.handleEmailFormatException(e);
+			if(email.charAt(i) >= 65 && email.charAt(i) <= 90) {
+				
+				throw new EmailAddressFormatException(email);
+			}
 		}
 	}
 
 	@Override
 	public void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		int[] number = new int[10];
 		char[] charArr = new char[phoneNumber.length()];
 		int i = 0;
@@ -108,24 +120,48 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 			else {
 				j++; 
 			}
+=======
+//		int[] number = new int[10];
+//		char[] charArr = new char[phoneNumber.length()];
+//		int i = 0;
+//		int j = 0;
+//		
+//		while(j != phoneNumber.length()) {
+//			charArr[j] = phoneNumber.charAt(j);
+//			if (charArr[j] == 1 || charArr[j] == 2 || charArr[j] == 3 || charArr[j] == 4 || charArr[j] == 5 || 
+//					charArr[j] == 6 || charArr[j] == 7 || charArr[j] == 8 || charArr[j] == 9 || charArr[j] == 0) {
+//				number[i] = charArr[j];
+//				i++;
+//				j++;
+//			}
+//			else {
+//				j++;
+//			}
+//		}
+//		if(i != 10) { //a statement that will throw an error if the phone number is not 10 digits long
+//			PhoneNumberFormatException e = null;
+//			Err.handlePhoneNumberFormatException(e);
+//		}
+//		String phoneNum = "(";
+//		for(int k = 0; k<3;k++) {
+//			phoneNum = phoneNum + number[k];
+//		}
+//		phoneNum = phoneNum + ") ";
+//		for(int w = 3; w<6;w++) {
+//			phoneNum = phoneNum + number[w];
+//		}
+//		phoneNum = phoneNum + "-";
+//		for(int y = 6; y<10;y++) {
+//			phoneNum = phoneNum + number[y];
+//		}
+//		System.out.println(phoneNum);
+		
+		if(phoneNumber.charAt(0) != '(' || phoneNumber.charAt(4) != ')'
+			|| phoneNumber.charAt(5) != '-' || phoneNumber.charAt(9) != '-') {
+			
+			throw new PhoneNumberFormatException(phoneNumber);
+>>>>>>> branch 'master' of https://github.com/gds7185/CS1120.lab5.git
 		}
-		if(i != 10) { //a statement that will throw an error if the phone number is not 10 digits long
-			PhoneNumberFormatException e = null;
-			Err.handlePhoneNumberFormatException(e);
-		}
-		String phoneNum = "(";
-		for(int k = 0; k<3;k++) {
-			phoneNum = phoneNum + number[k];
-		}
-		phoneNum = phoneNum + ") ";
-		for(int w = 3; w<6;w++) {
-			phoneNum = phoneNum + number[w];
-		}
-		phoneNum = phoneNum + "-";
-		for(int y = 6; y<10;y++) {
-			phoneNum = phoneNum + number[y];
-		}
-		System.out.println(phoneNum);
 	}
 
 	@Override

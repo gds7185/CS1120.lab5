@@ -2,17 +2,15 @@ package edu.wmich.CS1120.lab5;
 
 public class EmailAddressFormatException extends Exception {
 
-	public EmailAddressFormatException() {}
+	String EMAIL = "";
 
-    public EmailAddressFormatException(String message) {
-        super (message);
+    public EmailAddressFormatException(String email) {
+        
+    	EMAIL = email;
     }
-
-    public EmailAddressFormatException(Throwable cause) {
-        super (cause);
-    }
-
-    public EmailAddressFormatException(String message, Throwable cause) {
-        super (message, cause);
+    
+    public String getEmail() {
+    	
+    	return EMAIL;
     }
 }
