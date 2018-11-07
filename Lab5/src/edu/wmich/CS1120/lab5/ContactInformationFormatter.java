@@ -106,7 +106,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 				j++;
 			}
 			else {
-				j++;
+				j++; 
 			}
 		}
 		if(i != 10) { //a statement that will throw an error if the phone number is not 10 digits long
