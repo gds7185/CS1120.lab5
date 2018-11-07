@@ -51,7 +51,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 				formatEmail(line3);
 			}
 			catch(EmailAddressFormatException e) {
-				System.out.println("Error: ");
+				System.out.println("Error: Incorrect Email Address Format");
 			}
 			
 			scan.close();
