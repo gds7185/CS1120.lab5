@@ -1,18 +1,16 @@
 package edu.wmich.CS1120.lab5;
 
 public class PhoneNumberFormatException extends Exception {
-	
-	public PhoneNumberFormatException() {}
+    
+    String PHONE_NUMBER;
 
-    public PhoneNumberFormatException(String message) {
-        super (message);
-    }
-
-    public PhoneNumberFormatException(Throwable cause) {
-        super (cause);
-    }
-
-    public PhoneNumberFormatException(String message, Throwable cause) {
-        super (message, cause);
-    } 
+	public PhoneNumberFormatException(String phoneNumber) {
+   	 
+   	 PHONE_NUMBER = phoneNumber;
+	}
+    
+	public String getPhoneNumber() {
+   	 
+   	 return PHONE_NUMBER;
+	}
 }

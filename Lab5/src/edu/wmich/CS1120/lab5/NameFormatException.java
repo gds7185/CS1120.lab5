@@ -2,17 +2,15 @@ package edu.wmich.CS1120.lab5;
 
 public class NameFormatException extends Exception{
 
-	public NameFormatException() {}
+    String NAME;
 
-    public NameFormatException(String message) {
-        super (message);
-    }
-
-    public NameFormatException(Throwable cause) {
-        super (cause);
-    }
-
-    public NameFormatException(String message, Throwable cause) {
-        super (message, cause);
-    }
+	public NameFormatException(String name) {
+   	 
+   	 NAME = name;
+	}
+    
+	public String getName() {
+   	 
+   	 return NAME;
+	}
 }
