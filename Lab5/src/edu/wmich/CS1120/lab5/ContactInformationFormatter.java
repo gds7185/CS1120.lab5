@@ -104,7 +104,6 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 	@Override
 	public void formatPhoneNumber(String phoneNumber) throws PhoneNumberFormatException {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
 		int[] number = new int[10];
 		char[] charArr = new char[phoneNumber.length()];
 		int i = 0;
@@ -120,7 +119,6 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 			else {
 				j++; 
 			}
-=======
 //		int[] number = new int[10];
 //		char[] charArr = new char[phoneNumber.length()];
 //		int i = 0;
@@ -160,7 +158,7 @@ public class ContactInformationFormatter implements IContactInformationFormatter
 			|| phoneNumber.charAt(5) != '-' || phoneNumber.charAt(9) != '-') {
 			
 			throw new PhoneNumberFormatException(phoneNumber);
->>>>>>> branch 'master' of https://github.com/gds7185/CS1120.lab5.git
+		}
 		}
 	}
 
